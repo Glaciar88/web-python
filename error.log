@@ -31,3 +31,6 @@
 2016/11/14 15:13:41 [error] 2182#2182: *4 open() "/home/box/web/public/testproxy.php" failed (2: No such file or directory), client: 91.196.50.33, server: , request: "GET http://testp1.piwo.pila.pl/testproxy.php HTTP/1.1", host: "testp1.piwo.pila.pl"
 2016/11/15 12:38:34 [error] 10848#10848: *1 "/usr/share/nginx/html/hello/index.html" is not found (2: No such file or directory), client: 127.0.0.1, server: , request: "HEAD /hello/ HTTP/1.1", host: "localhost"
 2016/11/15 12:38:59 [error] 10848#10848: *2 "/usr/share/nginx/html/hello/index.html" is not found (2: No such file or directory), client: 127.0.0.1, server: , request: "HEAD /hello/ HTTP/1.1", host: "127.0.0.1"
+2016/11/15 21:09:15 [error] 2344#2344: *1 open() "/usr/share/nginx/html/1" failed (2: No such file or directory), client: 127.0.0.1, server: , request: "GET /1 HTTP/1.1", host: "localhost"
+2016/11/15 22:32:22 [error] 2343#2343: *3 open() "/usr/share/nginx/html/admin/config.php" failed (2: No such file or directory), client: 195.154.189.212, server: , request: "GET /admin/config.php HTTP/1.1", host: "213.88.91.195"
+2016/11/16 10:31:35 [error] 2344#2344: *8 "/usr/share/nginx/html/HNAP1/index.html" is not found (2: No such file or directory), client: 185.159.37.7, server: , request: "GET /HNAP1/ HTTP/1.1", host: "213.88.91.195", referrer: "http://213.88.91.195/"
