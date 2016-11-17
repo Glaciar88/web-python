@@ -16,7 +16,7 @@ class Question (models.Model):
 	rating = models.IntegerField()
 	author = models.ForeignKey(User, related_name = 'question_author')
 	likes = models.ManyToManyField(User, related_name = 'question_likes')
-	question_objects = QuestionManager();
+	objects = QuestionManager()
 
 class Answer (models.Model):
 	text = models.TextField()
