@@ -79,7 +79,7 @@ DATABASES = {
 	'ENGINE': 'django.db.backends.mysql', 
         'NAME': 'db_ask',
         'USER': 'root',
-        'PASSWORD': '1star89net',
+        'PASSWORD': '',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
