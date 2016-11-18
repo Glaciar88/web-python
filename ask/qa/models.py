@@ -5,9 +5,9 @@ from django.contrib.auth.models import User
 
 class QuestionManager(models.Manager):
         def new (self):
-                return super(QuestionManager, self).new().all().reverse()
+                return self.order_by('-id')
         def popular (self):
-                 return super(QuestionManager, self).popular().order_by('popular')
+                 return self.order_by('-rating')
 
 class Question (models.Model):
 	title = models.CharField(max_length = 255)

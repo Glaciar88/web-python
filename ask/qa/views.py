@@ -3,6 +3,8 @@ from django.core.paginator import Paginator
 from django.http import Http404
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
+
+from qa.models import Question, Answer
  
 def home(request):
 	try:
@@ -15,8 +17,8 @@ def home(request):
         	page = 1
     	paginator = Paginator(Question.objects.new(), limit)
     	questions = paginator.page(page)
-	return render(request, 'qa/question_list.html', {
-                'list' : questions.object_list,
+	return render(request, 'index.html', {
+                'questions' : questions.object_list,
                 'paginator' : paginator,
                 'page' : page,
         })
@@ -32,8 +34,8 @@ def popular(request):
                 page = 1
         paginator = Paginator(Question.objects.popular(), limit)
         questions = paginator.page(page)
-        return render(request, 'qa/question_list.html', {
-                'list' : questions.object_list,
+        return render(request, 'question_popular.html', {
+                'questions' : questions.object_list,
 		'paginator' : paginator,
 		'page' : page,
         })
@@ -44,7 +46,7 @@ def question(request, number = '0'):
 		answers = Answer.objects.filter(question = question)
 	except:
 		answers = None
-	return render(request, 'qa/question_view.html', {
+	return render(request, 'question_view.html', {
 		'question' : question,
 		'answers' : answers,
 	})

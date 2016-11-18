@@ -14,14 +14,14 @@
 <div>
 <nav><ul class="pagination">
 	{% for p in paginator.page_range %}
-		{% if p.number == page.number %}
+		{% if p == page %}
 			<li class="active">
 		{% else %}
 			<li>
-			{% endif %}
-				<a href="{% url 'popular' %}&page={{ p.number }}">
-				{{ p.number }}</a>
-			</li>
+		{% endif %}
+		<a href="{% url 'popular' %}?page={{ p }}">
+		{{ p }}</a>
+		</li>
 	{% endfor %}
 </ul></nav>	
 </div>
