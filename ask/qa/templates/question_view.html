@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+{{ question.title }}
+{% endblock %}
+{% block content %}
+<div>{{ question.title }}</div>
+<div>{{ question.text }}</div>
+<div>
+	{% if answers is not None %}	
+		{% for answer in answers %}
+		<p>{{ answer.text }}</p>
+		{% endfor %}
+	{% endif %}
+</div>
+{% endblock %}

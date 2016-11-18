@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}
+Популярные вопросы
+{% endblock %}
+{% block content %}
+<div>
+	<h1>Популярные вопросы</h1>
+	<ul>
+		{% for question in questions %}
+                	<li><a href="{% url 'question' question.id %}">{{ question.title }}</a></li>
+        	{% endfor %}        
+	</ul>
+</div>
+<div>
+<nav><ul class="pagination">
+	{% for p in paginator.page_range %}
+		{% if p.number == page.number %}
+			<li class="active">
+		{% else %}
+			<li>
+			{% endif %}
+				<a href="{% url 'popular' %}&page={{ p.number }}">
+				{{ p.number }}</a>
+			</li>
+	{% endfor %}
+</ul></nav>	
+</div>
+{% endblock %}
