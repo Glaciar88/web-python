@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 
+from django.core.urlresolvers import reverse
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -17,6 +18,9 @@ class Question (models.Model):
 	author = models.ForeignKey(User, related_name = 'question_author')
 	likes = models.ManyToManyField(User, related_name = 'question_likes')
 	objects = QuestionManager()
+	def get_url(self):
+		return reverse('question',
+			kwargs={'number': self.pk})
 
 class Answer (models.Model):
 	text = models.TextField()
