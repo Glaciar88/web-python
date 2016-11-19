@@ -6,10 +6,8 @@
 <div>{{ question.title }}</div>
 <div>{{ question.text }}</div>
 <div>
-	{% if answers is not None %}	
-		{% for answer in answers %}
-		<p>{{ answer.text }}</p>
-		{% endfor %}
-	{% endif %}
+	{% for answer in answers %}
+	<p>{{ answer.text }}</p>
+	{% endfor %}
 </div>
 {% endblock %}
