@@ -12,7 +12,7 @@ class QuestionManager(models.Manager):
 
 class Question (models.Model):
 	title = models.CharField(max_length = 255)
-	text = models.TextField()
+	text = models.TextField(blank=True)
 	added_at = models.DateField(blank = True, auto_now_add=True)
 	rating = models.IntegerField(default = 0)
 	author = models.ForeignKey(User, related_name = 'question_author')
