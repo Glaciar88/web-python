@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse, HttpResponseRedirect
 
 from qa.models import Question, Answer
-from qa.forms import AddAskForm, AddAnswerForm
+from qa.forms import AskForm, AnswerForm
 
 def home(request):
 	try:
@@ -47,7 +47,7 @@ def question(request, number = '0'):
 		answers = Answer.objects.filter(question = question)
 	except:
 		answers = None
-	form = AddAnswerForm({'question' : number})
+	form = AnswerForm({'question' : number})
 	return render(request, 'question_view.html', {
 		'question' : question,
 		'answers' : answers,
@@ -56,7 +56,7 @@ def question(request, number = '0'):
 
 def askForm(request):
 	if request.method == "POST":
-		form = AddAskForm(request.POST)
+		form = AskForm(request.POST)
 		#form = form.clean()
 		if form.is_valid():
 			ask = form.save()
@@ -70,7 +70,7 @@ def askForm(request):
 
 def answerForm(request):
 	if request.method == "POST":
-                form = AddAnswerForm(request.POST)
+                form = AnswerForm(request.POST)
                 #form = form.clean()
                 if form.is_valid():
                         answer = form.save()
