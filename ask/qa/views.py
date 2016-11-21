@@ -63,7 +63,7 @@ def askForm(request):
 			url = ask.get_url()
 			return HttpResponseRedirect(url)
 	else:
-		form = AddAskForm()
+		form = AskForm()
 	return render(request, 'ask_add.html', {
 		'form' : form,
 	})
