@@ -102,7 +102,12 @@ def signup(request):
 		email = request.POST.get('email')
 		user = User.objects.create_user(username, email, password)
 		if user is not None:
-			login(request)
+			if not request.session.session_key:
+                        	request.session.create()
+                        request.session['user_id'] = user.id
+			response = HttpResponseRedirect('/')
+			response.set_cookie('sessionid', request.session.session_key, httponly=True,max_age=None, path = '/')
+			return response
 		else:
 			error = u'Не удалось создать пользователя. Проверьте данные'
 	form = UserForm()
